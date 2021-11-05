@@ -25,23 +25,19 @@ layout: default
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {%- for post in posts -%}
       <li>
-
-        <div class="card border-success  mb-3" style="max-width: 720px;">
-          <div class="row g-0">
-            <div class="col-md-6">
-              <img src="{{ site.url }}/{{ post.image }}" class="img-fluid rounded-start">
-            </div>
-            <div class="col-md-6">
-              <div class="card-body">
-                <h5 class="card-title">{{ post.title | escape }}</h5>
-                <p class="card-text"><small class="text-muted">{{ post.date | date: date_format }}</small></p>
-                <p class="card-text">{{ post.description }}</p>
-                <a href="{{ post.url | relative_url }}" class="card-link">Прочитать</a>
+          <div class="col-md-12">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">{{post.categories}}</strong>
+                <h3 class="mb-0">{{ post.title | escape }}</h3>
+                <div class="mb-1 text-muted">{{ post.date | date: date_format }}</div>
+                <p class="card-text mb-auto">{{ post.description }}</p>
+                <a href="{{ post.url | relative_url }}" class="stretched-link">Continue reading</a>
+              </div>
+              <div class="col-md-5" style="background: url({{ site.url }}/{{ post.image }})">
               </div>
             </div>
           </div>
-        </div>
-
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}
