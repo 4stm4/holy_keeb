@@ -32,7 +32,7 @@ layout: default
                 <h3 class="mb-0">{{ post.title | escape }}</h3>
                 <div class="mb-1 text-muted">{{ post.date | date: date_format }}</div>
                 <p class="card-text mb-auto">{{ post.description }}</p>
-                <a href="{{ post.url | relative_url }}" class="stretched-link">Continue reading</a>
+                <a href="{{ post.url | relative_url }}" class="stretched-link"></a>
               </div>
               <div class="col-md-5" style="background: url({{ site.url }}/{{ post.image }})">
               </div>
