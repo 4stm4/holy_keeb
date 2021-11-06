@@ -28,20 +28,19 @@ layout: default
           <div class="col-md-12">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
               <div class="col p-4 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 text-secondary">{{post.categories}}</strong>
-                <h3 class="mb-0">{{ post.title | escape }}</h3>
-                <div class="mb-1 text-muted">{{ post.date | date: date_format }}</div>
-                <p class="card-text mb-auto">{{ post.description }}</p>
+                <p class="mb-0">
+                  <a class="h3 text-warning">{{ post.title | escape }}</a>
+                  <a class="h6 text-muted">{{post.date | date: date_format}}</a>
+                </p>
+                <p class="card-text mb-auto"><small>{{ post.description }}</small></p>
                 <a href="{{ post.url | relative_url }}" class="stretched-link"></a>
               </div>
-              <div class="col-md-5 img-thumbnail" style="background: url({{ site.url }}/{{ post.image }})">
-              </div>
+              <img src="{{ site.url }}/{{ post.image }}" class="card-img-bottom">
             </div>
           </div>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}
-
       </li>
       {%- endfor -%}
     </ul>
